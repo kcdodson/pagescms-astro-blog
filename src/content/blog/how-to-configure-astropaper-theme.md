@@ -1,7 +1,5 @@
 ---
 author: Sat Naing
-pubDatetime: 2022-09-23T04:58:53Z
-modDatetime: 2024-01-15T13:05:56.066Z
 title: How to configure AstroPaper theme
 slug: how-to-configure-astropaper-theme
 featured: true
@@ -11,7 +9,6 @@ tags:
   - docs
 description: How you can make AstroPaper theme absolutely yours.
 ---
-
 AstroPaper is a highly customizable Astro blog theme. With AstroPaper, you can customize everything according to your personal taste. This article will explain how you can make some customizations easily in the config file.
 
 ## Table of contents
@@ -38,15 +35,15 @@ export const SITE = {
 
 Here are SITE configuration options
 
-| Options               | Description                                                                                                                                                                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `website`             | Your deployed website url                                                                                                                                                                                                                           |
-| `author`              | Your name                                                                                                                                                                                                                                           |
-| `desc`                | Your site description. Useful for SEO and social media sharing.                                                                                                                                                                                     |
-| `title`               | Your site name                                                                                                                                                                                                                                      |
-| `ogImage`             | Your default OG image for the site. Useful for social media sharing. OG images can be an external image url or they can be placed under `/public` directory.                                                                                        |
-| `lightAndDarkMode`    | Enable or disable `light & dark mode` for the website. If disabled, primary color scheme will be used. This option is enabled by default.                                                                                                           |
-| `postPerPage`         | You can specify how many posts will be displayed in each posts page. (eg: if you set SITE.postPerPage to 3, each page will only show 3 posts per page)                                                                                              |
+| Options | Description |
+| --- | --- |
+| `website` | Your deployed website url |
+| `author` | Your name |
+| `desc` | Your site description. Useful for SEO and social media sharing. |
+| `title` | Your site name |
+| `ogImage` | Your default OG image for the site. Useful for social media sharing. OG images can be an external image url or they can be placed under `/public` directory. |
+| `lightAndDarkMode` | Enable or disable `light & dark mode` for the website. If disabled, primary color scheme will be used. This option is enabled by default. |
+| `postPerPage` | You can specify how many posts will be displayed in each posts page. (eg: if you set SITE.postPerPage to 3, each page will only show 3 posts per page) |
 | `scheduledPostMargin` | In Production mode, posts with a future `pubDatetime` will not be visible. However, if a post's `pubDatetime` is within the next 15 minutes, it will be visible. You can set `scheduledPostMargin` if you don't like the default 15 minutes margin. |
 
 ## Configuring locale
@@ -61,8 +58,7 @@ export const LOCALE = {
 } as const;
 ```
 
-`LOCALE.lang` will be used as HTML ISO Language code in `<html lang="en">`. If you don't specify this, default fallback will be set to `en`.
-`LOCALE.langTag` is used as [datetime locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString#locales). For this, you can specify an array of locales for fallback languages. Leave `LOCALE.langTag` empty `[]` to use the environment default at _build-_ and _run-time_.
+`LOCALE.lang` will be used as HTML ISO Language code in `<html lang="en">`. If you don't specify this, default fallback will be set to `en`. `LOCALE.langTag` is used as [datetime locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString#locales). For this, you can specify an array of locales for fallback languages. Leave `LOCALE.langTag` empty `[]` to use the environment default at _build-_ and _run-time_.
 
 ## Configuring logo or title
 
@@ -158,3 +154,28 @@ linkTitle: `Follow ${SITE.title} on Twitter`;
 ## Conclusion
 
 This is the brief specification of how you can customize this theme. You can customize more if you know some coding. For customizing styles, please read [this article](https://astro-paper.pages.dev/posts/customizing-astropaper-theme-color-schemes/). Thanks for reading.✌🏻
+
+```js
+// file: src/config.ts
+export const SOCIALS: SocialObjects = [
+  {
+    name: "Github",
+    href: "https://github.com/satnaing/astro-paper",
+    linkTitle: ` ${SITE.title} on Github`,
+    active: true,
+  },
+  {
+    name: "Facebook",
+    href: "https://github.com/satnaing/astro-paper",
+    linkTitle: `${SITE.title} on Facebook`,
+    active: true,
+  },
+  {
+    name: "Instagram",
+    href: "https://github.com/satnaing/astro-paper",
+    linkTitle: `${SITE.title} on Instagram`,
+    active: true,
+  },
+  ...
+]
+```
